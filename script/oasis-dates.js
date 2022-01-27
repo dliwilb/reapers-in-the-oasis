@@ -62,7 +62,7 @@ async function shakeIt() {
             document.getElementById('list-of-reapers').innerHTML + 
             '<p>Token ID: ' + tokenId + '<br> Seller: ' + seller + '<br> Order Hash: ' + orderHash + '<br>' +
             `<img src="${nftJSON.image}" width=300 height=300><br> Current Price: ` + 
-            nftPriceBCH + ` BCH @ ${auctionType[orderInfo[0]]} | Sold? ${orderInfo[10]} | Cancelled? ${orderInfo[11]} | ` + 
+            nftPriceBCH + ` BCH @ ${auctionType[orderInfo[0]]} | sold? ${orderInfo[10]} | cancelled? ${orderInfo[11]} | ` + 
             `<a href="https://oasis.cash/token/${nftContractAddress}/${tokenId}" target="_blank">check it out on OASIS&thinsp;<img src="icons8-external-link-16_goldish.png"></a> | <a href="${nftURI}" target="_blank">check attributes&thinsp;<img src="icons8-external-link-16_goldish.png"></a></p><br>`;
             // '<p>' + tokenId + '<br>' + seller + '<br>' + orderHash + '<br>' + nftPriceBCH + 
             // ` BCH ${auctionType[orderInfo[0]]} Sold? ${orderInfo[10]} Cancelled? ${orderInfo[11]}<br>` + 
