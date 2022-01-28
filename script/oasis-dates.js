@@ -40,6 +40,7 @@ async function shakeIt() {
 
     // const nOfEvents = events.length;
 
+    document.getElementById('list-of-reapers').innerHTML = '';
     for (let i = 0; i < events.length; i++) {
         const orderHash = events[i].args[2];
         const tokenId = events[i].args[1];
