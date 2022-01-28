@@ -24,7 +24,7 @@ async function shakeIt() {
 
     const blockNum = await provider.getBlockNumber();   
     const queryPeriodHour = document.getElementById('query-period-hours').value;
-    const queryPeriodBlock = queryPeriodHour * 60 * 60 / queryPeriodHour;
+    const queryPeriodBlock = queryPeriodHour * 60 * 60 / 5;
     const fromBlock = blockNum - queryPeriodBlock;
     const toBlock = blockNum;
     // console.log(blockNum);
