@@ -20,7 +20,8 @@ async function getCurrentPrice() {
 
 
 async function shakeIt() {
-	const provider = new ethers.providers.Web3Provider(window.ethereum);
+	// const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const provider = new ethers.providers.JsonRpcProvider('https://smartbch.greyh.at');
 
     const blockNum = await provider.getBlockNumber();   
     const queryPeriodHour = document.getElementById('query-period-hours').value;
@@ -40,7 +41,7 @@ async function shakeIt() {
 
     // const nOfEvents = events.length;
 
-    document.getElementById('list-of-reapers').innerHTML = '';
+    document.getElementById('list-of-reapers').innerHTML = `<p>[MakeOrder events from block ${fromBlock} to block ${toBlock}]</p><br>`;
     for (let i = 0; i < events.length; i++) {
         const orderHash = events[i].args[2];
         const tokenId = events[i].args[1];
