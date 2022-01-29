@@ -35,8 +35,20 @@ async function shakeIt() {
 
     const nftContractAddress = '0x48973dbAC0d46B939CD12A7250eFBA965e8a8cf2';  // Reapers
 
-    const eventFilter = marketContract.filters.MakeOrder(nftContractAddress);
-    const events = await marketContract.queryFilter(eventFilter, fromBlock, toBlock);
+    let events;
+    let contractEvent = '';
+    if (document.getElementById('query-type').value === 'query-listed') {
+        contractEvent = 'MakeOrder';
+        const eventFilter = marketContract.filters.MakeOrder(nftContractAddress);
+        events = await marketContract.queryFilter(eventFilter, fromBlock, toBlock);
+    }
+    else if (document.getElementById('query-type').value === 'query-sold') {
+        contractEvent = 'Claim';
+        const eventFilter = marketContract.filters.Claim(nftContractAddress);
+        events = await marketContract.queryFilter(eventFilter, fromBlock, toBlock);
+        console.log(events);
+        return 0;
+    }
     // console.log(events);
 
     // const nOfEvents = events.length;
