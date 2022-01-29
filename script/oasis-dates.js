@@ -32,7 +32,8 @@ async function shakeIt() {
             events = await marketContract.queryFilter(eventFilter, fromBlock, toBlock);
 
             document.getElementById('list-of-reapers').innerHTML = `<p>[MakeOrder events from block ${fromBlock} to block ${toBlock}]</p><br>`;
-            for (let i = 0; i < events.length; i++) {
+            // for (let i = 0; i < events.length; i++) {
+            for (let i = events.length-1; i >= 0; i--) {
                 const orderHash = events[i].args[2];
                 const tokenId = events[i].args[1];
                 const seller = events[i].args[3];
@@ -67,7 +68,8 @@ async function shakeIt() {
             // console.log(events);
 
             document.getElementById('list-of-reapers').innerHTML = `<p>[Claim events from block ${fromBlock} to block ${toBlock}]</p><br>`;
-            for (let i = 0; i < events.length; i++) {
+            // for (let i = 0; i < events.length; i++) {
+            for (let i = events.length-1; i >= 0; i--) {
                 // event Claim(IERC721 indexed token, uint256 id, bytes32 indexed hash, address seller, address indexed taker, uint256 price);
                 const tokenId = events[i].args[1];
                 // const orderHash = events[i].args[2];
